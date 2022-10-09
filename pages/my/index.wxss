@@ -1,0 +1,99 @@
+.container {
+  min-height: 100%;
+  overflow: hidden;
+  overflow-y: hidden;
+}
+
+.userinfo-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items:center;
+  width: 100%;
+}
+
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  padding: 50rpx 0;
+  align-items: left;
+}
+
+.userinfo-nickname {
+  margin-top: 10rpx;
+  padding-left: 20rpx;
+}
+.userinfo-avatar {
+  width: 160rpx;
+  height: 160rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.personal_dynamics {
+  color: #7e7e77e1;
+  font-size: 30rpx;
+  margin: 20rpx;
+}
+
+.my-item {
+  width: 100%;
+  background: url(https://cdn.it120.cc/images/weappshop/arrow-right.png) no-repeat 750rpx center;
+  background-size: 16rpx auto, 750rpx auto;
+  margin: 20rpx 0;
+  border-bottom: 1px solid #eee;
+  height: 100rpx;
+  line-height: 100rpx;
+  padding-left: 100rpx;
+}
+
+.my-company {
+  width: 100%;
+  background-size: 16rpx auto, 750rpx auto;
+  margin: 180rpx 0;
+  height: 100rpx;
+  line-height: 100rpx;
+  color: #6e6e69ce;
+  text-align: center;
+}
+
+.my-auctions {
+  width: 100%;
+  margin: 40rpx 0 10rpx;
+  border-bottom: 1px solid #eee;
+  height: 100rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  
+}
+
+.my-auction {
+  font-size: 30rpx;
+  color: #6e6e69ce;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 30rpx;
+}
+
+.my-number {
+  font-size: 30rpx;
+  color: black;
+}
+
+.line {
+  display: flex;
+  height: 56rpx;
+  background: rgba(0, 0, 0, 0.6);
+  line-height: 56rpx;
+  color: black;
+}
+
+.my-item-text {
+  font-size: 35rpx;
+}
+
+.my-item-sign {
+  color: #7e7e77d3;
+}

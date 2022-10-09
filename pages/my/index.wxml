@@ -1,0 +1,42 @@
+<view class="container">
+  <view class="userinfo-container">
+    <view class="userinfo">
+      <image wx:if="{{userInfo && userInfo.avatarUrl}}" class="userinfo-avatar" src="{{ userInfo.avatarUrl }}" background-size="cover"></image>
+      <text class="userinfo-nickname">{{ userInfo.nickName }}</text>
+    </view>
+    <view class=".personal_dynamics">
+      <text bindtap="toPersonalDynamics">个人动态></text>
+    </view>
+  </view>
+  <view style="height:20rpx;background: #eee;width:100%;"></view>
+  <view class="my-auctions">
+    <view class="my-auction">
+      
+     <text class="my-number">0</text> <text bindtap="toAllAuction">全部拍卖
+      </text>
+    </view>
+    <view class="my-auction">
+      
+   <text class="my-number">0</text> <text bindtap="toAuction">发起拍卖
+      </text>
+    </view>
+    <view class="my-auction">
+      
+   <text class="my-number">0</text> <text bindtap="toWinningRecord">中标记录
+      </text>
+    </view>
+  </view>
+  <view class="my-item" bindtap="toMarginManagement">
+    <text class="my-item-text">保证金管理</text>
+  </view>
+  <view class="my-item" bindtap="toQuestion">
+    <text class="my-item-text">常见问题</text>
+  </view>
+  <view class="my-item" bindtap="toContact">
+    <text class="my-item-text">联系客服</text>
+  </view>
+  <view class="my-company">
+    ~ 聚优科技出品 ~
+  </view>
+  <view style="height:20rpx;background: #eee;width:100%;"></view>
+</view>

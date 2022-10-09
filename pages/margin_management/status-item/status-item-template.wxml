@@ -1,0 +1,18 @@
+<template name="statusItem">
+  <view class="status-item">
+    <view class="status-item-title">
+      <text class="title-name">{{item.name}}</text>
+      <text class="title-flag">></text>
+    </view>
+    <view class="status-item-detail">
+      <view class="status-item-detail-item">
+        <text class="status-item-detail-status">{{item.status === 1 ? '退还' : '缴纳'}}</text>
+        <text class="status-item-detail-date">{{item.date}}</text>
+      </view>
+      <view>
+      <text style="color:{{item.status === 1 ? '#13ec20' : 'black'}}" class="status-item-price">{{item.status === 1 ? '+' : '-'}}{{item.price}}</text>
+      </view>
+    </view>
+
+  </view>
+</template>

@@ -1,0 +1,38 @@
+@import "grounding-item/grounding-item-template.wxss";
+.dynamics-main {
+  min-height: 100%;
+  overflow: hidden;
+  overflow-y: hidden;
+}
+
+.dynamics-top {
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  width: 100%;
+  height: 150rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.share {
+  font-size: 28rpx;
+  color: rgba(145, 137, 137, 0.904);
+}
+
+.lot-item{
+  color:red;
+  font-weight: bold;
+}
+
+.lot-show{
+  background:rgb(245, 244, 244);
+  width: 100%;
+  height: 1000rpx;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+

@@ -1,0 +1,6 @@
+<template name="questionItem">
+  <view class="question-item">
+    <text class="question-title">{{item.title}}</text>
+    <text class="question-answer">{{item.answer}}</text>
+  </view>
+</template>

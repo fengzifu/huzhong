@@ -1,0 +1,118 @@
+<scroll-view class="container1" scroll-y="true" style="height: 100%;">
+  <!-- <form bindsubmit="formSubmit" id='2' bindreset="formReset" class="auction-container"> -->
+
+  <view class="auction-name">
+    <input type='text' bindinput='getOrderName' class="auction-name1" maxlength="60" name="username" value='' placeholder='填写拍品名称' />
+  </view>
+
+  <view class='auction-describe'>
+    <textarea class='auction-describe1' maxlength="300" bindinput='getCharactersDetails' placeholder="添加关于此次拍卖的说明，详尽完善的信息填写有助于买家出价" name="content" value='{{formdata}}' />
+  </view>
+
+
+  <view class='image-list-view'>
+    <block wx:for="{{selectImageList}}" wx:key="{{index}}">
+      <view class='image-posit'>
+        <image src="{{item}}" class='image-list' bindlongpress='closeOption' data-index="{{index}}" />
+      </view>
+    </block>
+    <view wx:if="{{isShow}}" class='line-x' bindtap='selectBottom' hover-class='white-active'>
+      <image src="/images/add.png" class='image-up' />
+    </view>
+  </view>
+
+
+  <view class='auction-classify'>
+    <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+      <view class="picker">
+        选择分类：{{array[index]}}
+      </view>
+    </picker>
+  </view>
+
+  <view class='auction-price'>设置价格：</view>
+  <view class='price'>
+    <view class="start-price1">
+      <text>起拍价:</text>
+    </view>
+    <view class="start-price2">
+      <input type='number' class='start-price' maxlength="8" bindinput='getStartPrice' name="start-price" value='' placeholder='请输入起拍价' />
+    </view>
+
+    <view class="start-price1">
+      <text>加价幅度:</text>
+    </view>
+    <view class="start-price2">
+      <input type='number' class='start-price' bindinput='getAddPrice' maxlength="8" name="addPrice" value='' placeholder='请输入加价幅度' />
+    </view>
+    <view class="start-price1">
+      <text>参考价:</text>
+    </view>
+    <view class="start-price2">
+      <input type='number' class='start-price' bindinput='getReferencePrice' maxlength="8" name="referencePrice" value='' placeholder='请输入参考价' />
+    </view>
+    <view class="start-price1">
+      <text>保证金:</text>
+    </view>
+    <view class="start-price2">
+      <picker bindchange="bindPromisePickerChange" value="{{promiseIndex}}" range="{{promiseArray}}">
+        <view class="picker">
+          {{promiseArray[promiseIndex]}}
+        </view>
+      </picker>
+    </view>
+    <view class="start-price1">
+      <text>快递邮费:</text>
+    </view>
+    <view class="start-price2">
+      <input type='number' class='start-price' bindinput='getExpressPrice' maxlength="3" name="expressPrice" value='' placeholder='快递邮费' />
+    </view>
+  </view>
+
+  <view class='auction-start'>
+    <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+      <view class="picker">
+        开始时间：{{startTime}}
+      </view>
+    </picker>
+  </view>
+
+  <view class='auction-end'>
+    <picker mode="multiSelector" bindchange="bindMultiPickerChange2" bindcolumnchange="bindMultiPickerColumnChange2" value="{{multiIndex2}}" range="{{multiArray2}}">
+      <view class="picker">
+        结束时间：{{endTime}}
+      </view>
+    </picker>
+  </view>
+
+  <view class='auction-type'>
+    <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+      <view class="picker">
+        类型/成色：{{array[index]}}
+      </view>
+    </picker>
+  </view>
+
+  <view class='auction-introduce'>
+    拍品图文介绍：
+    <view class='image-introduce'>
+      <block wx:for="{{selectImageIntroduceList}}" wx:key="{{introduceIndex}}">
+        <view class='image-introduce-posit'>
+          <image src="{{item}}" class='image-introduce-list' bindlongpress='closeOption2' data-index="{{index}}" />
+        </view>
+      </block>
+      <view wx:if="{{isShow2}}" class='line-x' bindtap='selectBottom2' hover-class='white-active'>
+        <image src="/images/add.png" class='image-up' />
+      </view>
+    </view>
+  </view>
+
+
+
+  <view class='auction-submit'>
+    <button class='auction-btn' formType="showAuction">预览</button>
+    <button class='auction-btn' formType="reAuction">重置</button>
+    <button class='auction-btn' bindtap="creatAuction">发布</button>
+  </view>
+  <!-- </form> -->
+</scroll-view>

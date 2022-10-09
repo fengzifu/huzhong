@@ -1,0 +1,21 @@
+<import src="status-item/status-item-template.wxml" />
+<view>
+  <view class="margin-status">
+    <text class="status" bindtap="onStatus" data-status="0" style="color:{{color0}}">全部状态</text>
+    <text bindtap="onStatus" data-status="2" style="color:{{color2}}">锁定状态</text>
+    <text bindtap="onStatus" data-status="1" style="color:{{color1}}">已退还</text>
+    <text class="deduction" bindtap="onStatus" data-status="3" style="color:{{color3}}">已扣除</text>
+  </view>
+  <view class="goods">
+    <block wx:if="{{statusList}}" wx:for="{{statusList}}" wx:for-item="item" wx:for-index="idx">
+    <view bindtap="toDetail" data-id="{{idx}}">
+       <template is="statusItem" data="{{item}}" />
+    </view>
+    </block>
+    <block wx:if="{{statusList.length == 0}}">
+      <view class="lot-font">
+        <text>暂无记录</text>
+      </view>
+    </block>
+  </view>
+</view>

@@ -1,0 +1,12 @@
+<template name="acutionItem">
+  <view class="publish_use">
+    <view class="publish_use-img-box">
+      <image class="goods-thumbnail" src="https://cdn.it120.cc/apifactory/2019/01/15/89baf22ce56430e3617b77efca44dfdd.jpg" role="img">
+      </image>
+    </view>
+    <view >
+      <view class="pop-goods-title">拍品: {{item.name}}</view>
+      <view class="pop-goods-price">¥{{item.price}} 成交价</view>
+    </view>
+  </view>
+</template>

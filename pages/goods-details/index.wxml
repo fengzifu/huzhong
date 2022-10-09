@@ -1,0 +1,147 @@
+<import src="../../wxParse/wxParse.wxml" />
+<view class="container">
+  <!-- <view class="swiper-container">
+    <swiper class="swiper_box" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="swiperchange">
+      <block wx:for="{{goodsDetail.topPicture}}" wx:key="id">
+        <swiper-item>
+          <image src="{{item.imgUrl}}_m" class="slide-image" width="355" height="150" mode="aspectFit" lazy-load="true" />
+        </swiper-item>
+      </block>
+    </swiper>
+    <view class="dots">
+      <block wx:for="{{goodsDetail.topPicture}}" wx:key="unique">
+        <view class="dot{{index == swiperCurrent ? ' active' : ''}}"></view>
+      </block>
+    </view>
+  </view> -->
+  <block>
+    <view class="goods-info">
+
+      <view class="publish_use">
+        <view class="publish_use-img-box">
+          <image src="{{userInfo.avatarUrl}}" class="goods-thumbnail" />
+        </view>
+        <view class="pop-goods-des">
+          <view class="pop-goods-title">{{userInfo.nickName}}</view>
+          <view class="pop-goods-price">
+            就职公司：{{goodsDetail.workCompany}}
+          </view>
+        </view>
+      </view>
+
+      <view class="goods-title">推荐公司：{{goodsDetail.recommendCompany}}</view>
+      <view class="goods-time">推荐语言：{{goodsDetail.language}}</view>
+      <view class="goods-baozheng" >职位： {{goodsDetail.position}}</view>
+      <view class="goods-baozheng">
+        <text class="goods-baozheng1">职位数量：{{goodsDetail.count}} </text>
+        <text class="goods-baozheng2" bindtap="bindGuiGeTap">联系方式</text>
+      </view>
+      <view class="goods-end-time">地区：{{goodsDetail.countDown}}</view>
+      <view class="goods-price" style="color:#999;padding-left:35rpx;">省：{{goodsDetail.provinceName}}</view>
+      <view class="goods-price" style="color:#999;font-size:24rpx;">市：{{goodsDetail.cityName}}</view>
+      <view class="goods-price" style="color:#999;font-size:24rpx;">区：{{goodsDetail.areaName}}</view>
+
+      <view class="show_price1" style="padding-left:35rpx;">内推价 ¥{{goodsDetail.price}}</view>
+      <view class="show_price1" style="padding-left:35rpx;">已内推 1</view>
+    </view>
+
+  </block>
+  
+  <view class="goods-des-info" >
+    <view class="label-title">商品介绍</view>
+    
+    <view class="goods-text">
+      <textarea class="characters-details" fixed='true' contenteditable="true" contenteditable="true" auto-height="true" auto-height="true" value='{{goodsDetail.charactersDetails}}'  maxlength="600"/>
+      <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+      <swiper class="swiper_box" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="swiperchange">
+        <block wx:for="{{goodsDetail.downPicture}}" wx:key="id">
+          <swiper-item>
+            <image src="{{item.imgUrl}}_m" class="slide-image" width="355" height="150" mode="aspectFit" lazy-load="true" />
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+  </view>
+  
+  <view class="footer-box" wx:if="{{ 1 == goodsDetail.status }}">
+    
+    <button class="join-shop-cart" type="primary"  wx:if="{{ userInfo.id == goodsDetail.publishUid }}" bindtap="showCanYuZhe">参与者</button>
+    <button class="join-close" type="primary"  wx:if="{{ userInfo.id == goodsDetail.publishUid }}" bindtap="closeAuctionOrder">关闭</button>
+    <button class="join-know" type="primary"  wx:if="{{ userInfo.id != goodsDetail.publishUid }}" bindtap="knowTips">望悉知</button>
+    <button class="join-nei-tui" type="primary"  wx:if="{{ userInfo.id != goodsDetail.publishUid }}" bindtap="showOrHiddenBeat">内推</button>
+  </view>
+
+  <view class="show-popup" hidden="{{hideCanYuZhe}}">
+    <view class="popup-mask" bindtap="closePopupTap"></view>
+    <view class="popup-contents">
+      <view >请求内推人员</view>
+      <view class="size-label-box">
+        
+        <block wx:for="{{orderUsers}}" wx:for-item="orderUser" wx:for-index="dataArrayIndex">
+        <view class="publish_use">
+        <view class="publish_use-img-box">
+          <image src="{{orderUser.avatarUrl}}" class="goods-thumbnail" />
+        </view>
+        <view class="pop-goods-des">
+          <view class="pop-goods-title">{{orderUser.weiXin}}</view>
+          <view class="pop-goods-price">
+            <button class="join-yes" type="primary"  wx:if="{{ orderUser.status == 1 }}" data-id="{{orderUser.id}}" bindtap="agreeOrderUser">同意</button>
+            <button class="join-no" type="primary"  wx:if="{{ orderUser.status == 1 }}" data-id="{{orderUser.id}}" bindtap="regectOrderUser">驳回</button>
+            <view class="pop-goods-price" wx:if="{{ orderUser.status == 2 }}">状态：{{orderUser.statusName}}</view>
+          </view>
+        </view>
+      </view>
+        </block>
+      </view>
+    </view>
+  </view>
+
+
+  <view class="show-popup" hidden="{{hideNeedNode}}">
+    <view class="popup-mask" bindtap="closePopupTap"></view>
+    <view class="popup-contents">
+      <view class="size-label-box">
+        <view class="baozheng">
+          <text class="text" selectable="{{false}}" space="ensp">交易注意事项</text>
+        </view>
+        <view class="baozheng2">
+          <text class="text1" selectable="{{false}}" space="ensp">本小程序是我工作之余开发，为了给大家提供一个找工作、提升平台。</text>
+        </view>
+        <view class="baozheng3">
+          <text class="text1" selectable="{{false}}" space="ensp">希望大牛可以通过有偿或无偿方式帮助我们提升</text>
+        </view>
+        <view class="baozheng2">
+          <text class="text1" selectable="{{false}}" space="ensp">因个人时间问题暂时未接入支付，如需付费请暂时联系发布者。但请小心上当受骗，如果受骗请联系:272177758，我将尽量追回骗款，并对发布者进行封号处理</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+
+
+
+
+<!--下边无用代码-->>
+  <!-- <view class="show-popup" scroll-y="true" hidden="{{hidepaimaizhe}}">
+    <view class="popup-mask" bindtap="closePopupTap"></view>
+    <view class="popup-contents">
+      <view class="size-label-box">
+        <view class="pop-goods-info">
+          展示最近三名
+        </view>
+        <block wx:for="{{goodsDetail.properties}}" wx:for-item="property" wx:for-index="idx" wx:key="id">
+          <view class="pop-goods-info">
+            <view class="pop-img-box">
+              <image src="{{goodsDetail.basicInfo.pic}}" class="goods-thumbnail" />
+            </view>
+            <view class="pop-goods-des">
+              <view class="pop-goods-title">{{goodsDetail.basicInfo.name}}</view>
+              <view class="pop-goods-price">¥ {{selectSizePrice}}</view>
+            </view>
+            <view class="pop-goods-close" bindtap="closePopupTap"></view>
+          </view>
+        </block>
+      </view>
+    </view>
+  </view> -->
+</view>

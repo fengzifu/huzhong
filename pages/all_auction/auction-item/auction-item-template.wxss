@@ -1,0 +1,43 @@
+.publish_use {
+background-color: #fff;
+display: flex;
+flex-direction: row;
+align-items: center;
+margin-left: 0rpx;
+padding: 30rpx 0;
+border-top: 1px solid #eee;
+border-bottom: 1px solid #eee;
+}
+
+.publish_use-img-box {
+padding: 0 35rpx;
+width: 120rpx;
+height: 120rpx;
+overflow: hidden;
+margin-right: 26rpx;
+}
+
+.goods-thumbnail {
+width: 120rpx;
+height: 120rpx;
+display: flex;
+overflow: hidden;
+text-align: center;
+}
+
+.pop-goods-title {
+width: 484rpx;
+text-overflow: ellipsis;
+white-space: nowrap;
+overflow: hidden;
+font-size: 26rpx;
+color: #3c3c3c;
+
+}
+
+.pop-goods-price {
+font-size: 26rpx;
+color: #ec0b0b;
+margin-top: 20rpx;
+font-weight: bold;
+}

@@ -1,0 +1,14 @@
+<import src="grounding-item/grounding-item-template.wxml" />
+<view class="dynamics-main">
+    <view class="dynamics-top">
+      <text class="lot-item">上架拍品 0</text>
+    </view>
+  <view class="lot-show">
+  <block  wx:if="{{acutionList}}"  wx:for="{{acutionList}}" wx:for-item="item" wx:for-index="idx" >
+<template is="acutionItem" data="{{item}}" />
+</block>
+<block wx:if="{{acutionList.length == 0}}"> 
+ <view class="lot-font"><text >暂无新拍品上架</text></view>
+</block>
+  </view>
+</view>

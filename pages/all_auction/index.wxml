@@ -1,0 +1,9 @@
+<import src="auction-item/auction-item-template.wxml" />
+<view class="auction-container">
+<block  wx:if="{{acutionList}}"  wx:for="{{acutionList}}" wx:for-item="item" wx:for-index="idx" >
+<template is="acutionItem" data="{{item}}" />
+</block>
+<block wx:if="{{acutionList.length == 0}}"> 
+ <view class="lot-font"><text >暂未发起或参与过拍卖</text></view>
+</block>
+</view>
